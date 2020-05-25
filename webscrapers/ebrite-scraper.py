@@ -1,5 +1,6 @@
 import requests # needed to access a URL
 from bs4 import BeautifulSoup
+from csv import writer
 
 # get request for a website URL, used to access the web and stores it into variable
 page_to_scrape = requests.get('https://www.eventbrite.com/d/online/free--music--events--this-month/?lang=en&page=1')
@@ -16,6 +17,6 @@ soup = BeautifulSoup(page_content, 'lxml')
 #prints the html body of the provided URL, uncomment print below to see the soup body
 # print(soup.body)
 
-articles = soup.find_all("article")
+images = soup.find_all(class_='eds-event-card-content__image')
 
-print(soup.prettify())
+print(images)

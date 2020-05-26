@@ -20,10 +20,20 @@ soup = BeautifulSoup(html, 'lxml')
 # Grab Images
 images = soup.find_all(class_='eds-event-card-content__image')
 
-# Grab Event Names
+# Grab Event Names (grab all '.eds-event-card__formatted-name--is-clamped' inside of 'search-event-card-square-image')
 event_names = soup.select('.search-event-card-square-image .eds-event-card__formatted-name--is-clamped')
 for tag in event_names:
   print(tag.text)
+
+# Grab event date and time (grab all '.eds-l-pad-bot-1' inside of 'search-event-card-square-image')
+event_date_times = soup.select('.search-event-card-square-image .eds-l-pad-bot-1')
+for date_time in event_date_times:
+  print(date_time.text)
+
+# Grab event link (Grab all 'eds-event-card-content__action-link' inside the aside elements when aside is in '.search-event-card-square-image')
+event_links = soup.select('.search-event-card-square-image aside .eds-event-card-content__action-link')
+for link in event_links:
+  print(link.get('href'))
 
 
 driver.quit()

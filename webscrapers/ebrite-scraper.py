@@ -39,7 +39,7 @@ with open('covents_data.csv', 'w') as csv_file:
   event_date_times = soup.select('.search-event-card-square-image .eds-l-pad-bot-1')
   event_links = soup.select('.search-event-card-square-image aside .eds-event-card-content__action-link')
 
-  counter = 0
+  counter = -1
 
   for img in images:
     counter += 1

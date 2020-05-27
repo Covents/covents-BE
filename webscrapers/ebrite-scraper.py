@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from csv import writer
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import time
 
 PATH = './chromedriver'
 base_url = 'https://www.eventbrite.com/d/online/free--music--events--this-month/?lang=en&page=1'
@@ -10,33 +11,43 @@ base_url = 'https://www.eventbrite.com/d/online/free--music--events--this-month/
 
 driver = webdriver.Chrome(PATH)
 driver.get(base_url)
-driver.implicitly_wait(100)
+time.sleep(1)
 
-html = driver.page_source
+html_doc = driver.find_element_by_tag_name('html')
 
-# Activates beautiful soup: 1st parameter is page to scrape, 2nd parameter is parser used to traverse html document
-soup = BeautifulSoup(html, 'lxml')
+with open('covents_data.csv', 'w') as csv_file:
+  csv_writer = writer(csv_file)
+  headers = ['event_name', 'event_image', 'event_date_time', 'event_link']
+  csv_writer.writerow(headers)
 
-# Grab Images
-images = soup.find_all(class_='eds-event-card-content__image')
+  # Grab Images
+  html_doc.send_keys(Keys.COMMAND + 'r')
+  time.sleep(1)
+  html_doc.send_keys(Keys.PAGE_DOWN)
+  time.sleep(1)
+  html_doc.send_keys(Keys.PAGE_DOWN)
+  time.sleep(1)
+  html_doc.send_keys(Keys.PAGE_DOWN)
+  time.sleep(2)
 
-# Grab Event Names (grab all '.eds-event-card__formatted-name--is-clamped' inside of 'search-event-card-square-image')
-event_names = soup.select('.search-event-card-square-image .eds-event-card__formatted-name--is-clamped')
-for tag in event_names:
-  print(tag.text)
+  html = driver.page_source
+  # Activates beautiful soup: 1st parameter is page to scrape, 2nd parameter is parser used to traverse html document
+  soup = BeautifulSoup(html, 'lxml')
 
-# Grab event date and time (grab all '.eds-l-pad-bot-1' inside of 'search-event-card-square-image')
-event_date_times = soup.select('.search-event-card-square-image .eds-l-pad-bot-1')
-for date_time in event_date_times:
-  print(date_time.text)
+  images = soup.select('.eds-event-card-content__image')
+  event_names = soup.select('.search-event-card-square-image .eds-event-card__formatted-name--is-clamped')
+  event_date_times = soup.select('.search-event-card-square-image .eds-l-pad-bot-1')
+  event_links = soup.select('.search-event-card-square-image aside .eds-event-card-content__action-link')
 
-# Grab event link (Grab all 'eds-event-card-content__action-link' inside the aside elements when aside is in '.search-event-card-square-image')
-event_links = soup.select('.search-event-card-square-image aside .eds-event-card-content__action-link')
-for link in event_links:
-  print(link.get('href'))
+  counter = 0
 
+  for img in images:
+    counter += 1
+    img_src = img.get('src').replace(',', '')
+    name = event_names[counter].get_text()
+    date_time = event_date_times[counter].get_text()
+    link = event_links[counter].get('href')
+    csv_writer.writerow([name, img_src, date_time, link])
 
 driver.quit()
-
-# print(images)
 

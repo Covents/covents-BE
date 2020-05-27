@@ -17,10 +17,9 @@ html_doc = driver.find_element_by_tag_name('html')
 
 with open('covents_data.csv', 'w') as csv_file:
   csv_writer = writer(csv_file)
-  headers = ['event_name', 'event_image', 'event_date_time', 'event_link']
+  headers = ['id', 'event_name', 'event_image', 'event_date_time', 'event_link']
   csv_writer.writerow(headers)
 
-  # Grab Images
   html_doc.send_keys(Keys.COMMAND + 'r')
   time.sleep(1)
   html_doc.send_keys(Keys.PAGE_DOWN)
@@ -31,7 +30,7 @@ with open('covents_data.csv', 'w') as csv_file:
   time.sleep(2)
 
   html = driver.page_source
-  # Activates beautiful soup: 1st parameter is page to scrape, 2nd parameter is parser used to traverse html document
+
   soup = BeautifulSoup(html, 'lxml')
 
   images = soup.select('.eds-event-card-content__image')
@@ -47,7 +46,8 @@ with open('covents_data.csv', 'w') as csv_file:
     name = event_names[counter].get_text()
     date_time = event_date_times[counter].get_text()
     link = event_links[counter].get('href')
-    csv_writer.writerow([name, img_src, date_time, link])
+    event_id = counter + 1
+    csv_writer.writerow([event_id, name, img_src, date_time, link])
 
 driver.quit()
 

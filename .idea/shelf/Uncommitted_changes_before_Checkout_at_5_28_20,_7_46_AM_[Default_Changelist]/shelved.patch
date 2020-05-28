@@ -1,0 +1,101 @@
+Index: config.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import os\nbasedir = os.path.abspath(os.path.dirname(__file__))\n\nclass Config(object):\n    DEBUG = False\n    TESTING = False\n    CSRF_ENABLED = True\n    SECRET_KEY = 'this-really-needs-to-be-changed'\n    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']\n\n\nclass ProductionConfig(Config):\n    DEBUG = False\n\n\nclass StagingConfig(Config):\n    DEVELOPMENT = True\n    DEBUG = True\n\n\nclass DevelopmentConfig(Config):\n    DEVELOPMENT = True\n    DEBUG = True\n\n\nclass TestingConfig(Config):\n    TESTING = True
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- config.py	(revision 87ca41c0f9d2262aa3bca593dde33da6b534c73a)
++++ config.py	(date 1590673528701)
+@@ -1,27 +1,27 @@
+-import os
+-basedir = os.path.abspath(os.path.dirname(__file__))
+-
+-class Config(object):
+-    DEBUG = False
+-    TESTING = False
+-    CSRF_ENABLED = True
+-    SECRET_KEY = 'this-really-needs-to-be-changed'
+-    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+-
+-
+-class ProductionConfig(Config):
+-    DEBUG = False
+-
+-
+-class StagingConfig(Config):
+-    DEVELOPMENT = True
+-    DEBUG = True
+-
+-
+-class DevelopmentConfig(Config):
+-    DEVELOPMENT = True
+-    DEBUG = True
+-
+-
+-class TestingConfig(Config):
+-    TESTING = True
+\ No newline at end of file
++# import os
++# basedir = os.path.abspath(os.path.dirname(__file__))
++#
++# class Config(object):
++#     DEBUG = False
++#     TESTING = False
++#     CSRF_ENABLED = True
++#     SECRET_KEY = 'this-really-needs-to-be-changed'
++#     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
++#
++#
++# class ProductionConfig(Config):
++#     DEBUG = False
++#
++#
++# class StagingConfig(Config):
++#     DEVELOPMENT = True
++#     DEBUG = True
++#
++#
++# class DevelopmentConfig(Config):
++#     DEVELOPMENT = True
++#     DEBUG = True
++#
++#
++# class TestingConfig(Config):
++#     TESTING = True
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"JavaScriptSettings\">\n    <option name=\"languageLevel\" value=\"ES6\" />\n  </component>\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.8 (cars_api) (3)\" project-jdk-type=\"Python SDK\" />\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 87ca41c0f9d2262aa3bca593dde33da6b534c73a)
++++ .idea/misc.xml	(date 1590673304300)
+@@ -3,5 +3,5 @@
+   <component name="JavaScriptSettings">
+     <option name="languageLevel" value="ES6" />
+   </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (cars_api) (3)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (covents)" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
+Index: .idea/covents-BE.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<module type=\"PYTHON_MODULE\" version=\"4\">\n  <component name=\"NewModuleRootManager\">\n    <content url=\"file://$MODULE_DIR$\" />\n    <orderEntry type=\"jdk\" jdkName=\"Python 3.8 (cars_api) (3)\" jdkType=\"Python SDK\" />\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n  </component>\n  <component name=\"PyDocumentationSettings\">\n    <option name=\"format\" value=\"PLAIN\" />\n    <option name=\"myDocStringFormat\" value=\"Plain\" />\n  </component>\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/covents-BE.iml	(revision 87ca41c0f9d2262aa3bca593dde33da6b534c73a)
++++ .idea/covents-BE.iml	(date 1590673304305)
+@@ -2,7 +2,7 @@
+ <module type="PYTHON_MODULE" version="4">
+   <component name="NewModuleRootManager">
+     <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="jdk" jdkName="Python 3.8 (cars_api) (3)" jdkType="Python SDK" />
++    <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+   <component name="PyDocumentationSettings">

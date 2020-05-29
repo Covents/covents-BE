@@ -7,16 +7,17 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
 import os
-
+from config import Config
+from models import Event
 
 app = Flask(__name__)
-app.config.from_object(os.environ['APP_SETTINGS'])
-app.config.from_envvar(os.environ['APP_SETTINGS'])
-print(os.environ['APP_SETTINGS'])
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+print(os.getenv('SECRET_KEY'))
+app.config.from_object(Config)
+SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
-# from models import Result
 
 
 # create some test data
@@ -37,6 +38,7 @@ events = [
 @app.route('/', methods=['GET'])
 def home():
     return "<h1>Boss Beginner API</h1>"
+
 
 @app.errorhandler(404)
 def not_found(error):

@@ -7,11 +7,20 @@ data = []
 with open(csv_file_path) as csvFile:
   csvReader = csv.DictReader(csvFile)
   for csvRow in csvReader:
+    row_to_split = csvRow['event_date_time']
+    event_date_split = row_to_split.split()
+    try:
+      event_date = event_date_split[0] + ' ' + event_date_split[1] + ' '  +  event_date_split[2] + ' ' + event_date_split[3]
+      event_time = event_date_split[4] + ' ' + event_date_split[5] + ' '  +  event_date_split[6]
+    except IndexError:
+      break
+
     data_row = {
                 'id': csvRow['id'],
                 'event_name': csvRow['event_name'],
                 'image': csvRow['event_image'],
-                'event_date_time': csvRow['event_date_time'],
+                'date': event_date,
+                'time': event_time,
                 'link': csvRow['event_link']
               }
     data.append(data_row)

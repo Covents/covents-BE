@@ -9,13 +9,7 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
-
-    # Database
-    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-    # \ or \ 'postgres:///' + os.path.join(basedir, 'app.db')
-    # SQLALCHEMY_DATABASE_URI = os.getenv("SQLALCHEMY_DATABASE_URI")
-    # SQLALCHEMY_ECHO = True
-    # SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 class ProductionConfig(Config):
     DEBUG = False

@@ -1,38 +1,58 @@
 from flask import Flask
-from flask import abort
-from flask import make_response
+# from flask import abort
+from flask_script import Manager
+# from flask import make_response
 from flask import jsonify
 from flask import request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from datetime import datetime
+# from datetime import datetime
+from flask_marshmallow import Marshmallow
+from marshmallow import marshmallow-sqlalchemy
 import os
 from config import Config
-from models import Event
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-print(os.getenv('SECRET_KEY'))
 app.config.from_object(Config)
-SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+manager = Manager(app)
+ma = Marshmallow(app)
 
 
+class Event(db.Model):
+    __tablename__ = 'events'
 
-# create some test data
-events = [
-    {'id': 0,
-     'link': 'https://www.eventbrite.co.uk/e/one-direction-2020-at-home-tickets-105236948546?aff=ebdssbonlinesearch',
-     'image': 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F100862282%2F446435521372%2F1%2Foriginal.20200513-122914?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C24%2C768%2C384&s=7f4b36f7ca3fae9953b71f9e98df0157',
-     'date': '30 May 2020',
-     'time': "18:00 - 20:00 BST"},
-    {'id': 1,
-     'link': 'https://www.eventbrite.co.uk/e/zayn-malik-party-tickets-104380292264?aff=ebdssbonlinesearch',
-     'image': 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F100189414%2F444571810080%2F1%2Foriginal.20200505-023120?w=1080&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C125%2C500%2C250&s=73c9544e3f90a70ea11fdf8080cd6e12',
-     'date': '31 May 2020',
-     'time': "19:00 CDT"}
-]
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String())
+    link = db.Column(db.String())
+    image = db.Column(db.String())
+    date = db.Column(db.String())
+    time = db.Column(db.String())
+
+    def __repr__(self):
+        return '<id {}>' '<name {}>'.format(self.id, self.name)
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'link': self.link,
+            'image': self.image,
+            'date': self.date,
+            'time': self.time
+        }
+
+
+# Events Schema
+class EventSchema(ma.Schema):
+    class Meta:
+        fields = ('id', 'name', 'link', 'image', 'date', 'time')
+
+
+event_schema = EventSchema(many=False)
+events_schema = EventSchema(many=True)
 
 
 @app.route('/', methods=['GET'])
@@ -40,25 +60,25 @@ def home():
     return "<h1>Boss Beginner API</h1>"
 
 
-@app.errorhandler(404)
-def not_found(error):
-    return make_response(jsonify({'error': 'Not found'}), 404)
-
+#
+# @app.errorhandler(404)
+# def not_found(error):
+#     return make_response(jsonify({'error': 'Not found'}), 404)
+#
 
 @app.route('/api/v1/resources/events/all', methods=['GET'])
 def events_all():
-    return jsonify(events)
+    all_events = Event.query.all()
+    result = events_schema.dump(all_events)
+    return jsonify(result)
 
 
-# @app.route('/api/v1/resources/events/<int:event_id>', methods=['GET'])
-# def by_id(event_id):
-#     event = [event for event in events if event['id'] == event_id]
-#     if len(event) == 0:
-#         abort(404)
-#     return jsonify({'event' : event[0]})
-#
-#
-#
+@app.route('/api/v1/resources/events/<id>', methods=['GET'])
+def get_event(id):
+    event = Event.query.get(id)
+    return event_schema.jsonify(event)
+
+
 @app.route('/api/v1/resources/events/when', methods=['GET'])
 def api_by_date():
     # check if date was given as part of the URL
@@ -69,17 +89,6 @@ def api_by_date():
     else:
         return "Error: No date field provided. Please specify a date."
 
-        # Create an empty list for our results
-    results = []
 
-    # Loop through the data and match the result that fits the requested ID.
-    for event in events:
-        if event['date'] == date:
-            results.append(event)
-
-    # Use the jsonify function from Flask to convert to the JSON format.
-    return jsonify(results)
-
-
-app.run()
-db = SQLAlchemy(app)
+if __name__ == "__main__":
+    app.run()

@@ -59,7 +59,6 @@ def home():
     return "<h1>Boss Beginner API</h1>"
 
 
-
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
@@ -79,7 +78,7 @@ def events_all():
 def get_event_by_id():
     search_id = request.args.get('id')
     event = Event.query.get(search_id)
-    if event == None:
+    if event is None:
         abort(404)
     return event_schema.jsonify(event)
 
@@ -89,10 +88,9 @@ def get_events_by_name():
     search_name = request.args.get('name')
     event = Event.query.filter_by(name=search_name).first()
     print(event)
-    if event == None:
+    if event is None:
         abort(404)
     return event_schema.jsonify(event)
-
 
 
 @app.route('/api/v1/resources/event_keyword', methods=['GET'])

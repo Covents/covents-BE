@@ -6,9 +6,12 @@ from flask import jsonify
 from flask import request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-# from datetime import datetime
 from flask_marshmallow import Marshmallow
-from marshmallow import marshmallow-sqlalchemy
+# import sqlalchemy as sa
+# from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.orm import scoped_session, sessionmaker, relationship, backref
+# from datetime import datetime
+
 import os
 from config import Config
 
@@ -73,21 +76,42 @@ def events_all():
     return jsonify(result)
 
 
-@app.route('/api/v1/resources/events/<id>', methods=['GET'])
-def get_event(id):
-    event = Event.query.get(id)
+@app.route('/api/v1/resources/event_by_id', methods=['GET'])
+def get_event_by_id():
+    search_id = request.args.get('id')
+    event = Event.query.get(search_id)
     return event_schema.jsonify(event)
 
 
-@app.route('/api/v1/resources/events/when', methods=['GET'])
-def api_by_date():
-    # check if date was given as part of the URL
-    # if id date present, assign it to a variable
-    # if no date, display error
-    if 'date' in request.args:
-        date = int(request.args['date'])
-    else:
-        return "Error: No date field provided. Please specify a date."
+@app.route('/api/v1/resources/event_by_name', methods=['GET'])
+def get_events_by_name():
+    search_name = request.args.get('name')
+    event = Event.query.filter_by(name=search_name).first()
+    return event_schema.jsonify(event)
+
+
+@app.route('/api/v1/resources/event_keyword', methods=['GET'])
+def get_events_by_keyword():
+    keyword = request.args.get('keyword')
+    search = "%{}%".format(keyword)
+    events = Event.query.filter(Event.name.ilike(search)).all()
+    # events = Event.query.filter_by(name=search_name).all()
+    return events_schema.jsonify(events)
+
+
+
+
+
+
+# @app.route('/api/v1/resources/events/when', methods=['GET'])
+# def api_by_date():
+#     # check if date was given as part of the URL
+#     # if id date present, assign it to a variable
+#     # if no date, display error
+#     if 'date' in request.args:
+#         date = int(request.args['date'])
+#     else:
+#         return "Error: No date field provided. Please specify a date."
 
 
 if __name__ == "__main__":

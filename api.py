@@ -10,7 +10,8 @@ from flask_marshmallow import Marshmallow
 # import sqlalchemy as sa
 # from sqlalchemy.ext.declarative import declarative_base
 # from sqlalchemy.orm import scoped_session, sessionmaker, relationship, backref
-# from datetime import datetime
+from datetime import datetime
+# from dateutil.tz import *
 
 import os
 from config import Config
@@ -95,12 +96,15 @@ def get_events_by_keyword():
     keyword = request.args.get('keyword')
     search = "%{}%".format(keyword)
     events = Event.query.filter(Event.name.ilike(search)).all()
-    # events = Event.query.filter_by(name=search_name).all()
     return events_schema.jsonify(events)
 
 
-
-
+@app.route('/api/v1/resources/events/when', methods=['GET'])
+def get_events_by_date():
+    date = request.args.get('date')
+    search = "%{}%".format(date)
+    events = Event.query.filter(Event.date.ilike(search)).all()
+    return events_schema.jsonify(events)
 
 
 # @app.route('/api/v1/resources/events/when', methods=['GET'])

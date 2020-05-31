@@ -1,0 +1,22 @@
+test_data =
+[
+{
+    "id": "2",
+    "event_name": "One Direction 2020 At Home",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F100862282%2F446435521372%2F1%2Foriginal.20200513-122914?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C24%2C768%2C384&s=03fd9fffc3443d689802fa20ef5c7f90",
+    "date": "Sun, May 31, 2020",
+    "time": "6:00 PM BST",
+    "link": "https://www.eventbrite.co.uk/e/one-direction-2020-at-home-tickets-105236948546?aff=ebdssbonlinesearch"
+  }
+]
+def add_event(test_data):
+    name = test_data.get('event_name')
+    image = test_data.get('image')
+    link = test_data.get('link')
+    unformatted_date = test_data.get('date').replace(',', '')
+    date = datetime.strptime(unformatted_date, '%a %b %d %Y').date()
+    time = test_data.get('time')
+
+t = Event(name=test_data['event_name'], image=test_data['image'], date = test_data['date'], time = test_data['time'], link=test_data['link'])
+db.session.add(t)
+db.session.commit()

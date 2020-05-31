@@ -78,12 +78,12 @@ API Endpoints
     - params:  date=date, returns events for a date
     - example_request: http://localhost:5000/api/v1/resources/events/when?date=May 30
     - example_response: 
-{
-    "date": "Sat, May 30, 2020",
-    "id": 2,
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F99457776%2F119015619107%2F1%2Foriginal.20200424-194945?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=382%2C0%2C1068%2C534&s=825de94e15775c953040327b94efe728",
-    "link": "https://www.eventbrite.com/e/dcjazzfest-from-home-series-tickets-103369585212?aff=ebdssbonlinesearch",
-    "name": "DCJazzFest From Home Series",
-    "time": "7:00 PM EDT"
-  }
+        {
+            "date": "Sat, May 30, 2020",
+            "id": 2,
+            "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F99457776%2F119015619107%2F1%2Foriginal.20200424-194945?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=382%2C0%2C1068%2C534&s=825de94e15775c953040327b94efe728",
+            "link": "https://www.eventbrite.com/e/dcjazzfest-from-home-series-tickets-103369585212?aff=ebdssbonlinesearch",
+            "name": "DCJazzFest From Home Series",
+            "time": "7:00 PM EDT"
+          }
 

@@ -1,6 +1,6 @@
 import json
-from api import Event
-from api import db
+from app import Event
+from app import db
 from webscrapers import ebrite_scraper
 from webscrapers import csv_to_json
 

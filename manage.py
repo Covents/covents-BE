@@ -4,7 +4,7 @@ from flask_migrate import Migrate, MigrateCommand
 # from sqlalchemy.orm import sessionmaker
 # from sqlalchemy_declarative import Base, Events
 
-from api import app, db
+from app import app, db
 
 
 migrate = Migrate(app, db)

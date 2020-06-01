@@ -20,19 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13533267-a94e-4485-a160-4ed05d4d784d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/covents_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/covents_json.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraper_script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webscrapers/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webscrapers/covents_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/webscrapers/covents_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webscrapers/covents_json.json" beforeDir="false" afterPath="$PROJECT_DIR$/webscrapers/covents_json.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webscrapers/csv-to-json.py" beforeDir="false" afterPath="$PROJECT_DIR$/webscrapers/csv_to_json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webscrapers/ebrite-scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/webscrapers/ebrite_scraper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +173,7 @@
       <workItem from="1590714696027" duration="968000" />
       <workItem from="1590716069524" duration="11371000" />
       <workItem from="1590785409817" duration="43779000" />
-      <workItem from="1590957003495" duration="23915000" />
+      <workItem from="1590957003495" duration="24648000" />
     </task>
     <servers />
   </component>

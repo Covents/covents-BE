@@ -6,14 +6,21 @@ def scrape_it():
     from selenium.webdriver.common.keys import Keys
     from selenium.common.exceptions import ElementNotInteractableException
     import time
+    GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+    CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.binary_location = GOOGLE_CHROME_PATH
+
+    driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
 
 
-    PATH = 'webscrapers/chromedriver'
     current_month_url = 'https://www.eventbrite.com/d/online/free--music--events--this-month/?lang=en&page=1'
     next_month_url = 'https://www.eventbrite.com/d/online/free--music--events--next-month/?lang=en&page=1'
 
 
-    driver = webdriver.Chrome(PATH)
     driver.get(current_month_url)
     time.sleep(1)
 
@@ -71,7 +78,7 @@ def scrape_it():
 
       driver.quit()
 
-      driver = webdriver.Chrome(PATH)
+      driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
       driver.get(next_month_url)
       time.sleep(1)
 

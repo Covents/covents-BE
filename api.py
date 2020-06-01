@@ -30,6 +30,14 @@ class Event(db.Model):
     date = db.Column(db.String())
     time = db.Column(db.String())
 
+    def __init__(self, name, image, date, time, link):
+        self.name = name
+        self.image = image
+        self.date = date
+        self.time = time
+        self.link = link
+
+
     def __repr__(self):
         return '<id {}>' '<name {}>'.format(self.id, self.name)
 
@@ -42,6 +50,7 @@ class Event(db.Model):
             'date': self.date,
             'time': self.time
         }
+
 
 
 # Events Schema
@@ -71,7 +80,6 @@ def events_all():
     if len(result) == 0:
         abort(404)
     return jsonify(result)
-    # return jsonify({'result': result[0]})
 
 
 @app.route('/api/v1/resources/event_by_id', methods=['GET'])
@@ -87,7 +95,6 @@ def get_event_by_id():
 def get_events_by_name():
     search_name = request.args.get('name')
     event = Event.query.filter_by(name=search_name).first()
-    print(event)
     if event is None:
         abort(404)
     return event_schema.jsonify(event)

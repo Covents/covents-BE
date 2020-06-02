@@ -1,5 +1,6 @@
 def scrape_it():
     import requests
+    import os
     from bs4 import BeautifulSoup
     from csv import writer
     from selenium import webdriver
@@ -7,19 +8,24 @@ def scrape_it():
     from selenium.common.exceptions import ElementNotInteractableException
     import time
 
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-    PATH = 'webscrapers/chromedriver'
+
     current_month_url = 'https://www.eventbrite.com/d/online/free--music--events--this-month/?lang=en&page=1'
     next_month_url = 'https://www.eventbrite.com/d/online/free--music--events--next-month/?lang=en&page=1'
 
 
-    driver = webdriver.Chrome(PATH)
     driver.get(current_month_url)
     time.sleep(1)
 
     html_doc = driver.find_element_by_tag_name('html')
 
-    with open('covents_data.csv', 'w') as csv_file:
+    with open('../covents_data.csv', 'w') as csv_file:
       csv_writer = writer(csv_file)
       headers = ['id', 'event_name', 'event_image', 'event_date_time', 'event_link']
       csv_writer.writerow(headers)
@@ -71,7 +77,7 @@ def scrape_it():
 
       driver.quit()
 
-      driver = webdriver.Chrome(PATH)
+      driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
       driver.get(next_month_url)
       time.sleep(1)
 

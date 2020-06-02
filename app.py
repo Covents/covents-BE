@@ -52,7 +52,6 @@ class Event(db.Model):
         }
 
 
-
 # Events Schema
 class EventSchema(ma.Schema):
     class Meta:
@@ -89,6 +88,7 @@ def get_event_by_id():
     if event is None:
         abort(404)
     return event_schema.jsonify(event)
+
 
 
 @app.route('/api/v1/resources/event_by_name', methods=['GET'])

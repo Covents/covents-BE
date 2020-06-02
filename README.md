@@ -1,21 +1,24 @@
 # Covents Backend 
+
   - BE team:  Dan Reardon and Kelly Bard
   
+   
 ## API deployed on Heroku
   
   - Covent-BE Production is at: https://fierce-earth-48309.herokuapp.com
   
-## Endpoints
-_____________________
   
+## Endpoint Goals
+
   - MVP Endpoints: All Events, Event by date, keyword search functionality - MET
   
   - Extension Endpoints: Events by ID, Name - MET
   
   - Future Extensions: Multi-Keyword search
+  
 
 ## Current API Endpoints:
-______________________
+
 
 ** All Events
 

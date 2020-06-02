@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13533267-a94e-4485-a160-4ed05d4d784d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraper_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraper_script.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +16,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Unit Test" />
         <option value="Python Script" />
       </list>
     </option>
@@ -39,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="refactor-tesitng" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,12 +38,23 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="heroku" />
-                    <option name="lastUsedInstant" value="1591054931" />
+                    <option name="branchName" value="refactor-tesitng" />
+                    <option name="lastUsedInstant" value="1591135334" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/../covents_BE" />
+            </RecentBranchesForRepo>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="refactor-tesitng" />
+                    <option name="lastUsedInstant" value="1591135365" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1591049584" />
+                    <option name="lastUsedInstant" value="1591126643" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="introduce-webscraper" />
@@ -82,6 +78,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1cXM87rwdEzCVKSpWHDeUB7HI16" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -95,7 +92,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/webscrapers" />
+      <recent name="$PROJECT_DIR$/covents_API" />
+      <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/covents-API" />
     </key>
@@ -114,7 +112,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/covents_API/app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,9 +175,10 @@
       <workItem from="1590716069524" duration="11371000" />
       <workItem from="1590785409817" duration="43779000" />
       <workItem from="1590957003495" duration="24949000" />
-      <workItem from="1591055217652" duration="7533000" />
-      <workItem from="1591067295065" duration="1457000" />
-      <workItem from="1591072532466" duration="1387000" />
+      <workItem from="1591126579120" duration="155000" />
+      <workItem from="1591126737425" duration="7157000" />
+      <workItem from="1591137111422" duration="67000" />
+      <workItem from="1591137181605" duration="309000" />
     </task>
     <servers />
   </component>
@@ -207,50 +206,57 @@
       <screen x="0" y="23" width="1280" height="723" />
     </state>
     <state x="255" y="29" width="800" height="717" key="#Intentions/0.23.1280.723@0.23.1280.723" timestamp="1590969658926" />
-    <state x="581" y="193" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591059350880">
-      <screen x="0" y="23" width="1280" height="726" />
+    <state x="581" y="193" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590720286911">
+      <screen x="0" y="23" width="1280" height="724" />
     </state>
     <state x="581" y="193" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.724@0.23.1280.724" timestamp="1590720286911" />
-    <state x="581" y="193" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.726@0.23.1280.726" timestamp="1591059350880" />
     <state x="581" y="194" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.727@0.23.1280.727" timestamp="1590692159247" />
     <state x="581" y="194" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.728@0.23.1280.728" timestamp="1590699638371" />
     <state x="581" y="194" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.729@0.23.1280.729" timestamp="1590699927220" />
-    <state width="1154" height="197" key="GridCell.Tab.0.bottom" timestamp="1591055207283">
-      <screen x="0" y="23" width="1280" height="724" />
+    <state x="256" y="86" key="DiffContextDialog" timestamp="1591126609990">
+      <screen x="0" y="23" width="1280" height="716" />
     </state>
+    <state x="256" y="86" key="DiffContextDialog/0.23.1280.716@0.23.1280.716" timestamp="1591126609990" />
+    <state width="1180" height="179" key="GridCell.Tab.0.bottom" timestamp="1591135494754">
+      <screen x="0" y="23" width="1280" height="716" />
+    </state>
+    <state width="1180" height="179" key="GridCell.Tab.0.bottom/0.23.1280.716@0.23.1280.716" timestamp="1591135494754" />
     <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.721@0.23.1280.721" timestamp="1590957175532" />
     <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.723@0.23.1280.723" timestamp="1590956997846" />
-    <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.724@0.23.1280.724" timestamp="1591055207283" />
+    <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.724@0.23.1280.724" timestamp="1590954039375" />
     <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.726@0.23.1280.726" timestamp="1591051116660" />
     <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.727@0.23.1280.727" timestamp="1591051090391" />
     <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.728@0.23.1280.728" timestamp="1591038205769" />
     <state width="1015" height="171" key="GridCell.Tab.0.bottom/0.23.1280.729@0.23.1280.729" timestamp="1590701275559" />
-    <state width="1154" height="197" key="GridCell.Tab.0.center" timestamp="1591055207282">
-      <screen x="0" y="23" width="1280" height="724" />
+    <state width="1180" height="179" key="GridCell.Tab.0.center" timestamp="1591135494753">
+      <screen x="0" y="23" width="1280" height="716" />
     </state>
+    <state width="1180" height="179" key="GridCell.Tab.0.center/0.23.1280.716@0.23.1280.716" timestamp="1591135494753" />
     <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.721@0.23.1280.721" timestamp="1590957175531" />
     <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.723@0.23.1280.723" timestamp="1590956997845" />
-    <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.724@0.23.1280.724" timestamp="1591055207282" />
+    <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.724@0.23.1280.724" timestamp="1590954039371" />
     <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.726@0.23.1280.726" timestamp="1591051116653" />
     <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.727@0.23.1280.727" timestamp="1591051090388" />
     <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.728@0.23.1280.728" timestamp="1591038205766" />
     <state width="1015" height="171" key="GridCell.Tab.0.center/0.23.1280.729@0.23.1280.729" timestamp="1590701275557" />
-    <state width="1154" height="197" key="GridCell.Tab.0.left" timestamp="1591055207279">
-      <screen x="0" y="23" width="1280" height="724" />
+    <state width="1180" height="179" key="GridCell.Tab.0.left" timestamp="1591135494753">
+      <screen x="0" y="23" width="1280" height="716" />
     </state>
+    <state width="1180" height="179" key="GridCell.Tab.0.left/0.23.1280.716@0.23.1280.716" timestamp="1591135494753" />
     <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.721@0.23.1280.721" timestamp="1590957175531" />
     <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.723@0.23.1280.723" timestamp="1590956997845" />
-    <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.724@0.23.1280.724" timestamp="1591055207279" />
+    <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.724@0.23.1280.724" timestamp="1590954039369" />
     <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.726@0.23.1280.726" timestamp="1591051116651" />
     <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.727@0.23.1280.727" timestamp="1591051090384" />
     <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.728@0.23.1280.728" timestamp="1591038205760" />
     <state width="1015" height="171" key="GridCell.Tab.0.left/0.23.1280.729@0.23.1280.729" timestamp="1590701275554" />
-    <state width="1154" height="197" key="GridCell.Tab.0.right" timestamp="1591055207282">
-      <screen x="0" y="23" width="1280" height="724" />
+    <state width="1180" height="179" key="GridCell.Tab.0.right" timestamp="1591135494753">
+      <screen x="0" y="23" width="1280" height="716" />
     </state>
+    <state width="1180" height="179" key="GridCell.Tab.0.right/0.23.1280.716@0.23.1280.716" timestamp="1591135494753" />
     <state width="1154" height="197" key="GridCell.Tab.0.right/0.23.1280.721@0.23.1280.721" timestamp="1590957175531" />
     <state width="1154" height="197" key="GridCell.Tab.0.right/0.23.1280.723@0.23.1280.723" timestamp="1590956997845" />
-    <state width="1154" height="197" key="GridCell.Tab.0.right/0.23.1280.724@0.23.1280.724" timestamp="1591055207282" />
+    <state width="1154" height="197" key="GridCell.Tab.0.right/0.23.1280.724@0.23.1280.724" timestamp="1590954039373" />
     <state width="1154" height="197" key="GridCell.Tab.0.right/0.23.1280.726@0.23.1280.726" timestamp="1591051116654" />
     <state width="1154" height="197" key="GridCell.Tab.0.right/0.23.1280.727@0.23.1280.727" timestamp="1591051090389" />
     <state width="1154" height="197" key="GridCell.Tab.0.right/0.23.1280.728@0.23.1280.728" timestamp="1591038205769" />
@@ -283,24 +289,21 @@
       <screen x="0" y="23" width="1280" height="721" />
     </state>
     <state x="401" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1280.721@0.23.1280.721" timestamp="1590866471546" />
-    <state x="416" y="316" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591059337055">
-      <screen x="0" y="23" width="1280" height="726" />
-    </state>
-    <state x="416" y="316" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.726@0.23.1280.726" timestamp="1591059337055" />
     <state x="353" y="23" width="604" height="724" key="find.popup" timestamp="1591025386180">
       <screen x="0" y="23" width="1280" height="724" />
     </state>
     <state x="353" y="23" width="604" height="724" key="find.popup/0.23.1280.724@0.23.1280.724" timestamp="1591025386180" />
-    <state x="582" y="104" key="git4idea.branch.GitSmartOperationDialog" timestamp="1590674721911">
-      <screen x="0" y="23" width="1280" height="724" />
+    <state x="582" y="103" key="git4idea.branch.GitSmartOperationDialog" timestamp="1591126613334">
+      <screen x="0" y="23" width="1280" height="716" />
     </state>
+    <state x="582" y="103" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.716@0.23.1280.716" timestamp="1591126613334" />
     <state x="582" y="104" key="git4idea.branch.GitSmartOperationDialog/0.23.1280.724@0.23.1280.724" timestamp="1590674721911" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/covents-API/app/__init__.py</url>
+          <url>file://$PROJECT_DIR$/covents_API/app/__init__.py</url>
           <line>4</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -316,6 +319,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/covents_BE$api.coverage" NAME="api Coverage Results" MODIFIED="1591038115973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/covents_BE$app.coverage" NAME="app Coverage Results" MODIFIED="1591051090176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/covents_BE$app.coverage" NAME="app Coverage Results" MODIFIED="1591135450633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -1,124 +1,152 @@
 def scrape_it():
-    import requests
-    import os
-    from bs4 import BeautifulSoup
-    from csv import writer
-    from selenium import webdriver
-    from selenium.webdriver.common.keys import Keys
-    from selenium.common.exceptions import ElementNotInteractableException
-    import time
+  import requests
+  import os
+  from bs4 import BeautifulSoup
+  from csv import writer
+  from selenium import webdriver
+  from selenium.webdriver.common.keys import Keys
+  from selenium.common.exceptions import ElementNotInteractableException
+  import time
 
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+  chrome_options = webdriver.ChromeOptions()
+  chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+  chrome_options.add_argument("--headless")
+  chrome_options.add_argument("--disable-dev-shm-usage")
+  chrome_options.add_argument("--no-sandbox")
+  driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
+  current_month_url = 'https://www.eventbrite.com/d/online/free--music--events--this-month/?lang=en&page=1'
+  next_month_url = 'https://www.eventbrite.com/d/online/free--music--events--next-month/?lang=en&page=1'
 
-    current_month_url = 'https://www.eventbrite.com/d/online/free--music--events--this-month/?lang=en&page=1'
-    next_month_url = 'https://www.eventbrite.com/d/online/free--music--events--next-month/?lang=en&page=1'
+  driver.get(current_month_url)
+  time.sleep(1)
 
+  html_doc = driver.find_element_by_tag_name('html')
 
-    driver.get(current_month_url)
-    time.sleep(1)
+  id_counter = 0
+  data = []
 
+  while True:
     html_doc = driver.find_element_by_tag_name('html')
 
-    with open('../covents_data.csv', 'w') as csv_file:
-      csv_writer = writer(csv_file)
-      headers = ['id', 'event_name', 'event_image', 'event_date_time', 'event_link']
-      csv_writer.writerow(headers)
+    html_doc.send_keys(Keys.COMMAND + 'r')
+    time.sleep(1)
+    html_doc.send_keys(Keys.PAGE_DOWN)
+    time.sleep(1)
+    html_doc.send_keys(Keys.PAGE_DOWN)
+    time.sleep(1)
+    html_doc.send_keys(Keys.PAGE_DOWN)
+    time.sleep(1)
+    html_doc.send_keys(Keys.PAGE_DOWN)
+    time.sleep(1)
+    html_doc.send_keys(Keys.PAGE_DOWN)
+    time.sleep(2)
 
-      id_counter = 0
+    html = driver.page_source
 
-      while True:
-        html_doc = driver.find_element_by_tag_name('html')
+    soup = BeautifulSoup(html, 'lxml')
 
-        html_doc.send_keys(Keys.COMMAND + 'r')
-        time.sleep(1)
-        html_doc.send_keys(Keys.PAGE_DOWN)
-        time.sleep(1)
-        html_doc.send_keys(Keys.PAGE_DOWN)
-        time.sleep(1)
-        html_doc.send_keys(Keys.PAGE_DOWN)
-        time.sleep(1)
-        html_doc.send_keys(Keys.PAGE_DOWN)
-        time.sleep(1)
-        html_doc.send_keys(Keys.PAGE_DOWN)
-        time.sleep(2)
+    images = soup.select('.eds-event-card-content__image')
+    event_names = soup.select('.search-event-card-square-image .eds-event-card__formatted-name--is-clamped')
+    event_date_times = soup.select('.search-event-card-square-image .eds-l-pad-bot-1')
+    event_links = soup.select('.search-event-card-square-image aside .eds-event-card-content__action-link')
 
-        html = driver.page_source
+    counter = -1
 
-        soup = BeautifulSoup(html, 'lxml')
+    for img in images:
+      json_data = {}
+      counter += 1
+      id_counter += 1
+      event_date_time = event_date_times[counter].get_text()
+      event_date_split = event_date_time.split()
 
-        images = soup.select('.eds-event-card-content__image')
-        event_names = soup.select('.search-event-card-square-image .eds-event-card__formatted-name--is-clamped')
-        event_date_times = soup.select('.search-event-card-square-image .eds-l-pad-bot-1')
-        event_links = soup.select('.search-event-card-square-image aside .eds-event-card-content__action-link')
-
-        counter = -1
-
-        for img in images:
-          counter += 1
-          id_counter += 1
-          img_src = img.get('src').replace(',', '')
-          name = event_names[counter].get_text()
-          date_time = event_date_times[counter].get_text()
-          link = event_links[counter].get('href')
-          event_id = id_counter
-          csv_writer.writerow([event_id, name, img_src, date_time, link])
-
+      if len(event_date_split) == 0:
+        pass
+      else:
         try:
-          next_button = driver.find_element_by_xpath("//button[@data-spec='page-next']")
-          next_button.click()
-        except ElementNotInteractableException:
+          event_date = event_date_split[0] + ' ' + event_date_split[1] + ' ' + event_date_split[2] + ' ' + event_date_split[3]
+          event_time = event_date_split[4] + ' ' + event_date_split[5] + ' ' + event_date_split[6]
+        except IndexError:
           break
 
-      driver.quit()
+      json_data['image'] = img_src = img.get('src').replace(',', '')
+      json_data['event_name'] = event_names[counter].get_text()
+      json_data['date'] = event_date
+      json_data['time'] = event_time
+      json_data['link'] = event_links[counter].get('href')
+      json_data['id'] = id_counter
 
-      driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-      driver.get(next_month_url)
-      time.sleep(1)
+      data.append(json_data)
 
-      while True:
-        html_doc = driver.find_element_by_tag_name('html')
+    try:
+      next_button = driver.find_element_by_xpath("//button[@data-spec='page-next']")
+      next_button.click()
+    except ElementNotInteractableException:
+      break
 
-        html_doc.send_keys(Keys.COMMAND + 'r')
-        time.sleep(1)
-        html_doc.send_keys(Keys.PAGE_DOWN)
-        time.sleep(1)
-        html_doc.send_keys(Keys.PAGE_DOWN)
-        time.sleep(1)
-        html_doc.send_keys(Keys.PAGE_DOWN)
-        time.sleep(2)
+  driver.quit()
 
+  driver = webdriver.Chrome(PATH)
+  driver.get(next_month_url)
+  time.sleep(1)
 
-        html = driver.page_source
+  while True:
+    html_doc = driver.find_element_by_tag_name('html')
 
-        soup = BeautifulSoup(html, 'lxml')
+    html_doc.send_keys(Keys.COMMAND + 'r')
+    time.sleep(1)
+    html_doc.send_keys(Keys.PAGE_DOWN)
+    time.sleep(1)
+    html_doc.send_keys(Keys.PAGE_DOWN)
+    time.sleep(1)
+    html_doc.send_keys(Keys.PAGE_DOWN)
+    time.sleep(1)
+    html_doc.send_keys(Keys.PAGE_DOWN)
+    time.sleep(1)
+    html_doc.send_keys(Keys.PAGE_DOWN)
+    time.sleep(2)
 
-        images = soup.select('.eds-event-card-content__image')
-        event_names = soup.select('.search-event-card-square-image .eds-event-card__formatted-name--is-clamped')
-        event_date_times = soup.select('.search-event-card-square-image .eds-l-pad-bot-1')
-        event_links = soup.select('.search-event-card-square-image aside .eds-event-card-content__action-link')
+    html = driver.page_source
 
-        counter = -1
+    soup = BeautifulSoup(html, 'lxml')
 
-        for img in images:
-          counter += 1
-          id_counter += 1
-          img_src = img.get('src').replace(',', '')
-          name = event_names[counter].get_text()
-          date_time = event_date_times[counter].get_text()
-          link = event_links[counter].get('href')
-          event_id = id_counter
-          csv_writer.writerow([event_id, name, img_src, date_time, link])
+    images = soup.select('.eds-event-card-content__image')
+    event_names = soup.select('.search-event-card-square-image .eds-event-card__formatted-name--is-clamped')
+    event_date_times = soup.select('.search-event-card-square-image .eds-l-pad-bot-1')
+    event_links = soup.select('.search-event-card-square-image aside .eds-event-card-content__action-link')
 
+    counter = -1
+
+    for img in images:
+      json_data = {}
+      counter += 1
+      id_counter += 1
+      event_date_time = event_date_times[counter].get_text()
+      event_date_split = event_date_time.split()
+
+      if len(event_date_split) == 0:
+        pass
+      else:
         try:
-          next_button = driver.find_element_by_xpath("//button[@data-spec='page-next']")
-          next_button.click()
-        except ElementNotInteractableException:
+          event_date = event_date_split[0] + ' ' + event_date_split[1] + ' ' + event_date_split[2] + ' ' + event_date_split[3]
+          event_time = event_date_split[4] + ' ' + event_date_split[5] + ' ' + event_date_split[6]
+        except IndexError:
           break
 
-    driver.quit()
+      json_data['image'] = img_src = img.get('src').replace(',', '')
+      json_data['event_name'] = event_names[counter].get_text()
+      json_data['date'] = event_date
+      json_data['time'] = event_time
+      json_data['link'] = event_links[counter].get('href')
+      json_data['id'] = id_counter
+
+      data.append(json_data)
+
+    try:
+      next_button = driver.find_element_by_xpath("//button[@data-spec='page-next']")
+      next_button.click()
+    except ElementNotInteractableException:
+      break
+
+  driver.quit()
+  return data

@@ -1,10 +1,10 @@
 import json
 from app import Event
 from app import db
-from webscrapers import ebrite_scraper
+from webscrapers import ebrite_scrape
 from webscrapers import csv_to_json
 
-ebrite_scraper.scrape_it()
+ebrite_scrape.scrape_it()
 csv_to_json.convert()
 
 with open('webscrapers/covents_json.json') as json_data:

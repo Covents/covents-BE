@@ -7,8 +7,6 @@ def scrape_it():
     from selenium.webdriver.common.keys import Keys
     from selenium.common.exceptions import ElementNotInteractableException
     import time
-    GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-    CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")

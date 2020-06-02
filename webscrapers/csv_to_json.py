@@ -1,3 +1,4 @@
+# This file is no longer needed but will be kept for legacy purposes
 def convert():
     import csv, json
 

@@ -52,7 +52,6 @@ class Event(db.Model):
         }
 
 
-
 # Events Schema
 class EventSchema(ma.Schema):
     class Meta:

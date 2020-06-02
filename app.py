@@ -91,6 +91,7 @@ def get_event_by_id():
     return event_schema.jsonify(event)
 
 
+
 @app.route('/api/v1/resources/event_by_name', methods=['GET'])
 def get_events_by_name():
     search_name = request.args.get('name')

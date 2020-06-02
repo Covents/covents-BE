@@ -1,4 +1,23 @@
-API Endpoints
+# Covents Backend README
+  - BE team:  Dan Reardon and Kelly Bard
+  
+## API deployed on Heroku
+  
+  - Covent-BE Production is at: https://fierce-earth-48309.herokuapp.com
+  
+## ENDPOINTS
+_____________________
+  
+  - MVP Endpoints: All Events, Event by date, keyword search functionality - MET
+  
+  - Extension Endpoints: Events by ID, Name - MET
+  
+  - Future Extensions: Multi-Keyword search
+
+##Current API Endpoints:
+______________________
+
+** All Events
 
   - '/api/v1/resources/events/all', methods=['GET']
     - no params, returns all events objects
@@ -22,6 +41,8 @@ API Endpoints
     "time": "7:00 PM EDT"
   }
 ]
+
+** Event by ID
     
   - '/api/v1/resources/event_by_id', methods=['GET']
     - params:  id=id, returns  events object by id
@@ -36,7 +57,8 @@ API Endpoints
           "time": "7:00 PM CDT"
         }
 
-    
+** Event by Name
+
   - '/api/v1/resources/event_by_name', methods=['GET']
     - params:  id=id, returns  events object by event name
     - example_request: http://localhost:5000/api/v1/resources/event_by_name?id=Metallica
@@ -50,6 +72,8 @@ API Endpoints
           "time": "7:00 PM CDT"
         }
     
+** Keyword Search
+
   - '/api/v1/resources/events/keyword', methods=['GET']
     - params: (1) keyword=keyword, (but trying for multiple keywords) meant to search event name
        (case insensitive, can search with partial words)
@@ -73,6 +97,8 @@ API Endpoints
             "time": "7:00 PM EDT"
           }
         ]
+
+** Search by Date
 
   - '/api/v1/resources/events/when', methods=['GET']
     - params:  date=date, returns events for a date

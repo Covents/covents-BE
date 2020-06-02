@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13533267-a94e-4485-a160-4ed05d4d784d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraper_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraper_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webscrapers/ebrite_scrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/webscrapers/ebrite_scraper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +175,7 @@
       <workItem from="1590716069524" duration="11371000" />
       <workItem from="1590785409817" duration="43779000" />
       <workItem from="1590957003495" duration="24949000" />
-      <workItem from="1591055217652" duration="3036000" />
+      <workItem from="1591055217652" duration="3988000" />
     </task>
     <servers />
   </component>

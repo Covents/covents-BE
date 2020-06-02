@@ -6,8 +6,8 @@ def scrape_it():
     from selenium.webdriver.common.keys import Keys
     from selenium.common.exceptions import ElementNotInteractableException
     import time
-    GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-    CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+    # GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+    # CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--disable-gpu')

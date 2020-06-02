@@ -26,7 +26,7 @@ def scrape_it():
 
     html_doc = driver.find_element_by_tag_name('html')
 
-    with open('covents_data.csv', 'w') as csv_file:
+    with open('../covents_data.csv', 'w') as csv_file:
       csv_writer = writer(csv_file)
       headers = ['id', 'event_name', 'event_image', 'event_date_time', 'event_link']
       csv_writer.writerow(headers)

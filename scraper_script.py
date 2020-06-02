@@ -13,6 +13,6 @@ for i in scraped_data:
         db.session.commit()
 
 
-json_data.close()
+
 
 

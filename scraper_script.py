@@ -1,6 +1,5 @@
-import json
-from app import Event
-from app import db
+from application.__init__ import Event
+from application.__init__ import db
 from webscrapers import ebrite_scraper
 
 scraped_data = ebrite_scraper.scrape_it()
@@ -11,5 +10,8 @@ for i in scraped_data:
     if len(events_by_name_and_date) == 0:
         db.session.add(r)
         db.session.commit()
+
+
+
 
 

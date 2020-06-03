@@ -5,7 +5,6 @@ config_name = "testing"
 app = create_app(config_name)
 from application.models.event import Event, EventSchema
 import pytest
-from tests.db import db
 
 
 @pytest.fixture

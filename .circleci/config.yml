@@ -11,6 +11,8 @@ jobs:
       - python/load-cache
       - python/install-deps
       - python/save-cache
+      - store_test_results:
+        path: test-results
       - run:
           command: ./manage.py test
           name: Test

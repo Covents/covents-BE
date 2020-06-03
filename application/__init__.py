@@ -35,7 +35,6 @@ def create_app(config_name):
     api = Api(app)
     api.prefix = '/api/v1/resources'
 
-
     from application.controllers.events_all import EventsAllResource
     from application.controllers.events_by_date import EventsByDateResource
     from application.controllers.events_by_id import EventsByIdResource

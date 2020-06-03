@@ -35,15 +35,19 @@ def create_app(config_name):
     api = Api(app)
     api.prefix = '/api/v1/resources'
 
+
     from application.controllers.events_all import EventsAllResource
-    # from application.controllers import *
+    from application.controllers.events_by_date import EventsByDateResource
+    from application.controllers.events_by_id import EventsByIdResource
+    from application.controllers.events_by_name import EventsByNameResource
+    from application.controllers.events_by_keyword import EventsByKeywordResource
 
     api.add_resource(EventsAllResource, '/events/all', '/events/all')
+    api.add_resource(EventsByDateResource, '/events/when', '/events/when')
+    api.add_resource(EventsByIdResource, '/event_by_id', '/event_by_id')
+    api.add_resource(EventsByNameResource, '/event_by_name', '/event_by_name')
+    api.add_resource(EventsByKeywordResource, '/event_keyword', '/event_keyword')
 
-    # api.add_resource(EventsResource, '/events/when', '/events/when')
-    # api.add_resource(EventsResource, '/events', '/events/all')
-    # api.add_resource(EventsResource, '/events', '/events/all')
-    # api.add_resource(EventsResource, '/events', '/events/all')
 
     # api.add_resource(TasksResource, '/tasks', '/tasks/<int:task_id>')
 
@@ -57,67 +61,3 @@ def create_app(config_name):
 
     return app
 
-    # def serialize(self):
-    #     return {
-    #         'id': self.id,
-    #         'name': self.name,
-    #         'link': self.link,
-    #         'image': self.image,
-    #         'date': self.date,
-    #         'time': self.time
-    #     }
-
-#
-# @app.route('/api/v1/resources/events/all', methods=['GET'])
-# def events_all():
-#     all_events = Event.query.all()
-#     result = events_schema.dump(all_events)
-#     if len(result) == 0:
-#         abort(404)
-#     return jsonify(result)
-
-#
-# @app.route('/api/v1/resources/event_by_id', methods=['GET'])
-# def get_event_by_id():
-#     search_id = request.args.get('id')
-#     event = Event.query.get(search_id)
-#     if event is None:
-#         abort(404)
-#     return event_schema.jsonify(event)
-#
-#
-#
-# @app.route('/api/v1/resources/event_by_name', methods=['GET'])
-# def get_events_by_name():
-#     search_name = request.args.get('name')
-#     event = Event.query.filter_by(name=search_name).first()
-#     if event is None:
-#         abort(404)
-#     return event_schema.jsonify(event)
-#
-#
-# @app.route('/api/v1/resources/event_keyword', methods=['GET'])
-# def get_events_by_keyword():
-#     keyword = request.args.get('keyword')
-#     search = "%{}%".format(keyword)
-#     events = Event.query.filter(Event.name.ilike(search)).all()
-#     results = events_schema.dump(events)
-#     if len(events) == 0:
-#         abort(404)
-#     return jsonify(results)
-#
-#
-# @app.route('/api/v1/resources/events/when', methods=['GET'])
-# def get_events_by_date():
-#     date = request.args.get('date')
-#     search = "%{}%".format(date)
-#     events = Event.query.filter(Event.date.ilike(search)).all()
-#     if len(events) == 0:
-#         abort(404)
-#     return events_schema.jsonify(events)
-
-# from application.controllers.events_all import EventsResource
-
-
-# if __name__ == "__main__":
-#     app.run()

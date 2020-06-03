@@ -6,12 +6,12 @@ from application import build_schemas
 from flask import jsonify
 
 
-class EventsAllResource(Resource):
+class EventsByNameResource(Resource):
     def get(self):
-        all_events = Event.query.all()
+        search_name = request.args.get('name')
+        event = Event.query.filter_by(name=search_name).first()
         events_schema, event_schema = build_schemas()
-        result = events_schema.dump(all_events)
-        if len(result) == 0:
+        if event is None:
             abort(404)
-        return jsonify(result)
+        return event_schema.jsonify(event)
 

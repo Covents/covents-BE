@@ -6,17 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13533267-a94e-4485-a160-4ed05d4d784d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/controllers/events_all.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/event.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/events_by_date.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/events_by_id.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/events_by_keyword.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/events_by_name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_events.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraper_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraper_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webscrapers/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/webscrapers/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/events_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/events_all.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +182,7 @@
       <workItem from="1591055217652" duration="7533000" />
       <workItem from="1591067295065" duration="1457000" />
       <workItem from="1591072532466" duration="1387000" />
-      <workItem from="1591199195271" duration="9121000" />
+      <workItem from="1591199195271" duration="14228000" />
     </task>
     <servers />
   </component>
@@ -217,53 +214,53 @@
       <screen x="0" y="23" width="1280" height="723" />
     </state>
     <state x="110" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.723@0.23.1280.723" timestamp="1591208449134" />
-    <state x="581" y="192" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591205027873">
+    <state x="581" y="192" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591210635494">
       <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state x="581" y="192" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.721@0.23.1280.721" timestamp="1591205027873" />
+    <state x="581" y="192" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.721@0.23.1280.721" timestamp="1591210635494" />
     <state x="581" y="193" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.724@0.23.1280.724" timestamp="1590720286911" />
     <state x="581" y="193" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.726@0.23.1280.726" timestamp="1591059350880" />
     <state x="581" y="194" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.727@0.23.1280.727" timestamp="1590692159247" />
     <state x="581" y="194" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.728@0.23.1280.728" timestamp="1590699638371" />
     <state x="581" y="194" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.729@0.23.1280.729" timestamp="1590699927220" />
-    <state width="1180" height="118" key="GridCell.Tab.0.bottom" timestamp="1591209295733">
-      <screen x="0" y="23" width="1280" height="723" />
+    <state width="1180" height="118" key="GridCell.Tab.0.bottom" timestamp="1591215034784">
+      <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1180" height="179" key="GridCell.Tab.0.bottom/0.23.1280.716@0.23.1280.716" timestamp="1591152644435" />
-    <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.721@0.23.1280.721" timestamp="1590957175532" />
+    <state width="1180" height="118" key="GridCell.Tab.0.bottom/0.23.1280.716@0.23.1280.716" timestamp="1591212603468" />
+    <state width="1180" height="118" key="GridCell.Tab.0.bottom/0.23.1280.721@0.23.1280.721" timestamp="1591215034784" />
     <state width="1180" height="118" key="GridCell.Tab.0.bottom/0.23.1280.723@0.23.1280.723" timestamp="1591209295733" />
     <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.724@0.23.1280.724" timestamp="1591055207283" />
     <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.726@0.23.1280.726" timestamp="1591051116660" />
     <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.727@0.23.1280.727" timestamp="1591051090391" />
     <state width="1154" height="197" key="GridCell.Tab.0.bottom/0.23.1280.728@0.23.1280.728" timestamp="1591038205769" />
     <state width="1015" height="171" key="GridCell.Tab.0.bottom/0.23.1280.729@0.23.1280.729" timestamp="1590701275559" />
-    <state width="1180" height="118" key="GridCell.Tab.0.center" timestamp="1591209295732">
-      <screen x="0" y="23" width="1280" height="723" />
+    <state width="1180" height="118" key="GridCell.Tab.0.center" timestamp="1591215034784">
+      <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1180" height="179" key="GridCell.Tab.0.center/0.23.1280.716@0.23.1280.716" timestamp="1591152644434" />
-    <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.721@0.23.1280.721" timestamp="1590957175531" />
+    <state width="1180" height="118" key="GridCell.Tab.0.center/0.23.1280.716@0.23.1280.716" timestamp="1591212603468" />
+    <state width="1180" height="118" key="GridCell.Tab.0.center/0.23.1280.721@0.23.1280.721" timestamp="1591215034784" />
     <state width="1180" height="118" key="GridCell.Tab.0.center/0.23.1280.723@0.23.1280.723" timestamp="1591209295732" />
     <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.724@0.23.1280.724" timestamp="1591055207282" />
     <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.726@0.23.1280.726" timestamp="1591051116653" />
     <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.727@0.23.1280.727" timestamp="1591051090388" />
     <state width="1154" height="197" key="GridCell.Tab.0.center/0.23.1280.728@0.23.1280.728" timestamp="1591038205766" />
     <state width="1015" height="171" key="GridCell.Tab.0.center/0.23.1280.729@0.23.1280.729" timestamp="1590701275557" />
-    <state width="1180" height="118" key="GridCell.Tab.0.left" timestamp="1591209295731">
-      <screen x="0" y="23" width="1280" height="723" />
+    <state width="1180" height="118" key="GridCell.Tab.0.left" timestamp="1591215034783">
+      <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1180" height="179" key="GridCell.Tab.0.left/0.23.1280.716@0.23.1280.716" timestamp="1591152644434" />
-    <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.721@0.23.1280.721" timestamp="1590957175531" />
+    <state width="1180" height="118" key="GridCell.Tab.0.left/0.23.1280.716@0.23.1280.716" timestamp="1591212603467" />
+    <state width="1180" height="118" key="GridCell.Tab.0.left/0.23.1280.721@0.23.1280.721" timestamp="1591215034783" />
     <state width="1180" height="118" key="GridCell.Tab.0.left/0.23.1280.723@0.23.1280.723" timestamp="1591209295731" />
     <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.724@0.23.1280.724" timestamp="1591055207279" />
     <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.726@0.23.1280.726" timestamp="1591051116651" />
     <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.727@0.23.1280.727" timestamp="1591051090384" />
     <state width="1154" height="197" key="GridCell.Tab.0.left/0.23.1280.728@0.23.1280.728" timestamp="1591038205760" />
     <state width="1015" height="171" key="GridCell.Tab.0.left/0.23.1280.729@0.23.1280.729" timestamp="1590701275554" />
-    <state width="1180" height="118" key="GridCell.Tab.0.right" timestamp="1591209295733">
-      <screen x="0" y="23" width="1280" height="723" />
+    <state width="1180" height="118" key="GridCell.Tab.0.right" timestamp="1591215034784">
+      <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1180" height="179" key="GridCell.Tab.0.right/0.23.1280.716@0.23.1280.716" timestamp="1591152644435" />
-    <state width="1154" height="197" key="GridCell.Tab.0.right/0.23.1280.721@0.23.1280.721" timestamp="1590957175531" />
+    <state width="1180" height="118" key="GridCell.Tab.0.right/0.23.1280.716@0.23.1280.716" timestamp="1591212603468" />
+    <state width="1180" height="118" key="GridCell.Tab.0.right/0.23.1280.721@0.23.1280.721" timestamp="1591215034784" />
     <state width="1180" height="118" key="GridCell.Tab.0.right/0.23.1280.723@0.23.1280.723" timestamp="1591209295733" />
     <state width="1154" height="197" key="GridCell.Tab.0.right/0.23.1280.724@0.23.1280.724" timestamp="1591055207282" />
     <state width="1154" height="197" key="GridCell.Tab.0.right/0.23.1280.726@0.23.1280.726" timestamp="1591051116654" />
@@ -319,11 +316,6 @@
           <line>4</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/application/__init__.py</url>
-          <line>3</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -337,6 +329,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/covents_BE$api.coverage" NAME="api Coverage Results" MODIFIED="1591038115973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/covents_BE$app.coverage" NAME="app Coverage Results" MODIFIED="1591152112611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/covents_BE$__init__.coverage" NAME="run_the_app Coverage Results" MODIFIED="1591209295719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/covents_BE$__init__.coverage" NAME="run_the_app Coverage Results" MODIFIED="1591215034774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

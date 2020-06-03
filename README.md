@@ -1,7 +1,12 @@
-# Covents Backend 
+### Contributors
+[Megan Venetianer - Front End](https://github.com/megan-venetianer)
 
-  - BE team:  Dan Reardon and Kelly Bard
-  
+[Cristina Peña - Front End](https://github.com/CLPena)
+
+[Dan Reardon - Back End](https://github.com/dreardon1021)
+
+[Kelly Bard - Back End](https://github.com/KellyIB)
+
    
 ## API deployed on Heroku
   

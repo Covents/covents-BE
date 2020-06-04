@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="13533267-a94e-4485-a160-4ed05d4d784d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraper_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraper_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +89,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="settings.editor.splitter.proportion" value="0.25301206" />
   </component>
@@ -180,6 +180,8 @@
       <workItem from="1591055217652" duration="7533000" />
       <workItem from="1591067295065" duration="1457000" />
       <workItem from="1591072532466" duration="1387000" />
+      <workItem from="1591218788050" duration="358000" />
+      <workItem from="1591219219558" duration="537000" />
     </task>
     <servers />
   </component>

@@ -9,6 +9,11 @@ chardet==3.0.4
 click==7.1.2
 coverage==5.1
 dateparser==0.7.4
+=== fierce-earth-48309 Buildpack URLs
+1. https://github.com/heroku/heroku-buildpack-google-chrome
+2. https://github.com/heroku/heroku-buildpack-chromedriver
+3. heroku/python
+
 DateTime==4.3
 Flask==1.1.2
 flask-marshmallow==0.12.0

@@ -7,8 +7,13 @@
 
 [Kelly Bard - Back End](https://github.com/KellyIB)
 
+
+
+## Deployed App
+[c o v e n t s](https://covents.netlify.app/#/)
+
    
-## API deployed on Heroku
+### BE API deployed on Heroku
   
   - Covent-BE Production is at: https://fierce-earth-48309.herokuapp.com
   

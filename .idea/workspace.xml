@@ -8,7 +8,6 @@
     <list default="true" id="13533267-a94e-4485-a160-4ed05d4d784d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scraper_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraper_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webscrapers/ebrite_scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/webscrapers/ebrite_scraper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="refactor-tesitng" />
+        <entry key="$PROJECT_DIR$" value="heroku" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,6 +50,10 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="heroku-coming-soon" />
+                    <option name="lastUsedInstant" value="1591293689" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="scraper-test" />
                     <option name="lastUsedInstant" value="1591137219" />
                   </RecentBranch>
@@ -65,10 +68,6 @@
                   <RecentBranch>
                     <option name="branchName" value="introduce-webscraper" />
                     <option name="lastUsedInstant" value="1590955681" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="db-setup" />
-                    <option name="lastUsedInstant" value="1590706211" />
                   </RecentBranch>
                 </list>
               </option>
@@ -181,6 +180,10 @@
       <workItem from="1591126737425" duration="7157000" />
       <workItem from="1591137111422" duration="67000" />
       <workItem from="1591137181605" duration="969000" />
+      <workItem from="1591293286612" duration="458000" />
+      <workItem from="1591293813343" duration="47000" />
+      <workItem from="1591294088539" duration="13000" />
+      <workItem from="1591624002167" duration="316000" />
     </task>
     <servers />
   </component>

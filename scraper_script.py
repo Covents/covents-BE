@@ -3,6 +3,9 @@ from app import Event
 from app import db
 from webscrapers import ebrite_scraper
 
+num_rows_deleted = db.session.query(Event).delete()
+db.session.commit()
+
 scraped_data = ebrite_scraper.scrape_it()
 
 for i in scraped_data:

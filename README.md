@@ -19,7 +19,7 @@
   
 ### Slide deck used at capstone presentation
 
-  - https://docs.google.com/presentation/d/1FwUGeC-TW4hBnwJTv6_vczn0SngD5CpbFQ5CY2KzNMI/edit?ts=5ed955f0#slide=id.g897d938f84_0_5
+  [Capstone Presentation](https://docs.google.com/presentation/d/1FwUGeC-TW4hBnwJTv6_vczn0SngD5CpbFQ5CY2KzNMI/edit?ts=5ed955f0#slide=id.g897d938f84_0_5)
   
   
 ## Endpoint Goals

@@ -17,7 +17,7 @@
   
   - Covent-BE Production is at: https://fierce-earth-48309.herokuapp.com
   
-### Slide deck used at capstone presentation
+### Capstone Presentation
 
   [Capstone Presentation](https://docs.google.com/presentation/d/1FwUGeC-TW4hBnwJTv6_vczn0SngD5CpbFQ5CY2KzNMI/edit?ts=5ed955f0#slide=id.g897d938f84_0_5)
   

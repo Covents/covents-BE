@@ -61,7 +61,7 @@ def scrape_it():
       id_counter += 1
       event_date_time = event_date_times[counter].get_text()
       event_date_split = event_date_time.split()
-      print(img.get('src'))
+      print(img)
 
       if len(event_date_split) == 0:
         pass

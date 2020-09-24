@@ -51,13 +51,13 @@ def scrape_it():
     event_date_times = soup.select('.search-event-card-square-image .eds-l-pad-bot-1')
     event_links = soup.select('.search-event-card-square-image aside .eds-event-card-content__action-link')
 
-    counter = -1
+    counter = 0
 
     for img in images:
       json_data = {}
       counter += 1
       id_counter += 1
-      event_date_time = event_date_times[counter].get_text()
+      # event_date_time = event_date_times[counter - 1].get_text()
       event_date_split = event_date_time.split()
 
       if len(event_date_split) == 0:

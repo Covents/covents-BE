@@ -47,9 +47,10 @@ def scrape_it():
     soup = BeautifulSoup(html, 'lxml')
 
     images = soup.select('.eds-event-card-content__image')
+    print(len(images))
     event_names = soup.select('.search-event-card-square-image .eds-event-card__formatted-name--is-clamped')
     event_date_times = soup.select('.search-event-card-square-image .eds-l-pad-bot-1')
-    print(event_date_times)
+    print(len(event_date_times))
     event_links = soup.select('.search-event-card-square-image aside .eds-event-card-content__action-link')
 
     counter = -1

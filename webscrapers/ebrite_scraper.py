@@ -72,7 +72,7 @@ def scrape_it():
         except IndexError:
           break
 
-      json_data['image'] = img.get('src')
+      json_data['image'] = img.get('data-src')
       json_data['event_name'] = event_names[counter].get_text()
       json_data['date'] = event_date
       json_data['time'] = event_time
@@ -142,7 +142,7 @@ def scrape_it():
         except IndexError:
           break
 
-      json_data['image'] = img.get('src')
+      json_data['image'] = img.get('data-src')
       json_data['event_name'] = event_names[counter].get_text()
       json_data['date'] = event_date
       json_data['time'] = event_time

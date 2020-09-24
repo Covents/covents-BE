@@ -129,6 +129,7 @@ def scrape_it():
       counter += 1
       id_counter += 1
       event_date_time = event_date_times[counter].get_text()
+      print(counter)
       event_date_split = event_date_time.split()
 
       if len(event_date_split) == 0:
